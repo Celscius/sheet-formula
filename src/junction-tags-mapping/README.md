@@ -1,3 +1,21 @@
+# Google Sheets SQL-Style Tagging Prototype
+
+A prototype demonstrating how to handle random, on-the-fly user tagging in a spreadsheet while automatically generating a strict, relational 3-table SQL structure (Items, Tags, Junction) using modern Google Sheets formulas.
+
+## The Architecture
+Instead of managing three sheets manually, this project utilizes `LET`, `MAP`, and `LAMBDA` to auto-generate database mapping tables from a simple, human-readable comma-separated list.
+
+### Input (Items Sheet)
+
+| item_id | name             | tags              |
+|---------|------------------|-------------------|
+| 1       | Build Login Page | dev, auth, urgent |
+
+### Auto-Generated Outputs
+1. **Tags Sheet**: Extracts unique strings and assigns explicit row-ID logic.
+2. **Junction Sheet**: Maps `item_id` directly to the dynamically generated `tag_id`.
+
+## project structure
 ```
 ├── README.md          # Project overview & quick start
 ├── data/
